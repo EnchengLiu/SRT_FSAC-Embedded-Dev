@@ -1,0 +1,71 @@
+VERSION "HIPBNYYYYYYYYYYYYYYYYYYYYYYYYYYYNNNNNNNNNN/4/%%%/4/'%**4NNN///"
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+
+BS_:
+
+BU_:
+
+
+
+
+BA_DEF_  "DBName" STRING ;
+BA_DEF_  "Manufacturer" STRING ;
+BA_DEF_  "LinProtocolType" ENUM  "LDF","DBC";
+BA_DEF_ BO_  "LinDiagSlaveResponse" ENUM  "No","Yes";
+BA_DEF_ BO_  "LinDiagMasterRequest" ENUM  "No","Yes";
+BA_DEF_ BU_  "LinDiagAddress" INT 0 255;
+BA_DEF_  "LinLanguageVersion" FLOAT 0.01 99.99;
+BA_DEF_  "LinProtocolVersion" FLOAT 0.01 99.99;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "LinSpeedDefinition" FLOAT 0.2 20;
+BA_DEF_ BU_  "LinMaster" ENUM  "No","Yes";
+BA_DEF_  "LinTimeBase" FLOAT 1 100;
+BA_DEF_  "LinJitter" FLOAT 0 10;
+BA_DEF_ BU_  "LinSlave" ENUM  "No","Yes";
+BA_DEF_ SG_  "LinInitValue" INT 0 65535;
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_  "Manufacturer" "Vector";
+BA_DEF_DEF_  "LinProtocolType" "DBC";
+BA_DEF_DEF_  "LinDiagSlaveResponse" "No";
+BA_DEF_DEF_  "LinDiagMasterRequest" "No";
+BA_DEF_DEF_  "LinDiagAddress" 0;
+BA_DEF_DEF_  "LinLanguageVersion" 1.2;
+BA_DEF_DEF_  "LinProtocolVersion" 1.2;
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "LinSpeedDefinition" 9.6;
+BA_DEF_DEF_  "LinMaster" "No";
+BA_DEF_DEF_  "LinTimeBase" 1;
+BA_DEF_DEF_  "LinJitter" 0;
+BA_DEF_DEF_  "LinSlave" "Yes";
+BA_DEF_DEF_  "LinInitValue" 0;
+BA_ "BusType" "LIN";
+BA_ "DBName" "LINdbTemplate";

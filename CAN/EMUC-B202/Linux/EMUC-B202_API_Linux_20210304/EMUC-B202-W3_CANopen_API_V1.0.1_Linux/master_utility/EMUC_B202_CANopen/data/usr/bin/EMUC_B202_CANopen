@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd /usr/bin/EMUC_B202_CANopen_inno
+./EMUC_B202_CANopen_exe

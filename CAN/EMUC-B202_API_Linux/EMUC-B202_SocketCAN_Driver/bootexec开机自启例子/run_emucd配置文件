@@ -1,0 +1,88 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:				INNODISK
+# Required-Start:		$local_fs $remote_fs $syslog $network $time
+# Required-Stop:		$local_fs $remote_fs $syslog $network 
+# Default-Start:		1 2 3 4 5
+# Default-Stop:			0 6
+# Short-Description:	INNODISK CAN Bus Starter
+# Description:			INNODISK CAN Bus Starter, used for setup canbus
+### END INIT INFO
+
+do_start()
+{
+    sudo pkill -2 emucd_64
+    sleep 0.2
+    sudo rmmod emuc2socketcan
+    sudo insmod /etc/init.d/emuc2socketcan.ko
+
+    timeout=60
+
+    # check emuc_64
+    str_ttyACM0=""
+    check_times=0
+    while [ "${str_ttyACM0}" == "" ]
+    do
+        sudo emucd_64 -s7 ttyACM0 can0 can1
+        sleep 0.2
+        str_ttyACM0=$(ifconfig -a |grep can0)
+        check_times=$((${check_times}+1))
+        if [ ${check_times} -ge ${timeout} ]; then
+            exit 0
+        fi
+    done
+    echo "emuc: ttyACM0 reg!" > /dev/kmsg
+
+    # check can0
+    str_can0=""
+    check_times=0
+    while [ "${str_can0}" == "" ]
+    do
+        sudo ip link set can0 up qlen 1000
+        sleep 0.2
+        str_can0=$(ifconfig |grep can0)
+        check_times=$((${check_times}+1))
+        if [ ${check_times} -ge ${timeout} ]; then
+            exit 0
+        fi
+    done
+    echo "emuc: can0 up!" > /dev/kmsg
+
+    # check can1
+    str_can1=""
+    check_times=0
+    while [ "${str_can1}" == "" ]
+    do
+        sudo ip link set can1 up qlen 1000
+        sleep 0.2
+        str_can1=$(ifconfig |grep can1)
+        check_times=$((${check_times}+1))
+        if [ ${check_times} -gt ${timeout} ]; then
+            exit 0
+        fi
+    done
+    echo "emuc: can1 up!" > /dev/kmsg
+}
+
+do_stop()
+{
+    sudo pkill -2 emucd_64
+}
+
+# Carry out specific functions when asked to by the system
+case "$1" in
+  start)
+    echo "emuc: Starting run_emucd" > /dev/kmsg
+    do_start
+    ;;
+  stop)
+    echo "emuc: Stopping run_emucd" > /dev/kmsg
+    do_stop
+    ;;
+  *)
+    echo "emuc: Usage: /etc/init.d/blah {start|stop}" > /dev/kmsg
+    exit 1
+    ;;
+esac
+ 
+exit 0

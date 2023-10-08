@@ -1,0 +1,4 @@
+X:\STUDY\研究生\logitech\lab\ComreadG29\Debug\ComreadG29.exe
+X:\STUDY\研究生\logitech\lab\ComreadG29\Debug\ComreadG29.pdb
+d:\Users\LAB\Desktop\ComreadG29\ComreadG29\Debug\ComreadG29.exe
+d:\Users\LAB\Desktop\ComreadG29\ComreadG29\Debug\ComreadG29.pdb

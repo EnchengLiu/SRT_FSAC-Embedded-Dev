@@ -1,0 +1,38 @@
+流媒体服务器搭建：
+https://www.jb51.net/article/175121.htm
+https://www.cnblogs.com/wanderwei/p/7490692.html
+https://www.cnblogs.com/yuqiandoudou/p/4703246.html
+vim相关指令
+下载指令
+解压指令
+配置安装
+目录
+监听
+sudo lsof -i:1935
+sudo kill xxx
+推流
+ffmpeg -re -i Desktop/624.mp4 -c copy -f flv rtmp://119.45.138.172:1935/zbcs推流视频
+ffmpeg -i /dev/video1 -an（音频） -f flv rtmp://119.45.138.172:1935/zbcs推流摄像头
+./ffmpeg -f v4l2 -r 30 -s 640x480 -c:v  mjpeg -i /dev/video1 -c:v flv1/h264 -pix_fmt yuv420p -g 50 -b 800000 -preset ultrafast -f flv rtmp://119.45.138.172:1935/zbcs推流摄像头并指定为h264格式（需在ffmpeg目录下）
+./ffmpeg -f v4l2 -framerate 30 -video_size 640x480 -i /dev/video1 -c:v h264_nvmpi -pix_fmt yuv420p  -preset ultrafast -f flv rtmp://119.45.138.172:1935/zbcs推流摄像头并指定为h264格式（需在ffmpeg目录下）
+
+
+
+
+
+拉流
+<pre>ffmpeg -i rtmp://119.45.138.172:1935/zbcs -c copy ddd.flv视频拉流
+ffplay rtmp://119.45.138.172:1935/live拉流摄像头（ffmpeg自带，也可用vlc）
+ffplay -fflags nobuffer rtmp://119.45.138.172:1935/zbcs -x -y -top -left (7:4)（低延迟）
+ffmpeg -i rtmp://119.45.138.172:1935/zbcs -vcodec h264 -f flv -acodec aac -ac 2 723.h264拉流储存为视频
+参考：
+https://blog.csdn.net/weixin_37897683/article/details/81225228?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-3.nonecase
+https://www.cnblogs.com/smileyqp/p/12675357.html
+
+
+ffmpeg -f dshow -i video="" -r 20 -s 640x480 -vcodec libx264 -preset ultrafast -f flv rtmp://119.45.138.172:1935/zbcs
+ffmpeg -f dshow -i video="" -r 20 -s 640x480 -vcodec libx264 -preset ultrafast -f flv rtmp://119.45.138.172:1936/live
+ffplay -x 480 -y 640 -noborder -fflags nobuffer rtmp://119.45.138.172:1935/zbcs 
+g++ -o test3.cpp test3 -I include -L lib  -lavformat -lavcodec -lavutil -lavresample -lavdevice -lswscale
+ffplay  -fflags nobuffer rtmp://119.45.138.172:1935/zbcs -x 720 -y 360 -left 100 -top 150 -noborder
+ffplay  -fflags nobuffer rtmp://119.45.138.172:1936/live -x 420 -y 240 -left 850 -top 270 -noborder

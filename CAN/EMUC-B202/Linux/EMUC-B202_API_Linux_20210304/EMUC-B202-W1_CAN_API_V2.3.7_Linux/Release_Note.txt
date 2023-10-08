@@ -1,0 +1,43 @@
+EMUC-B202 CAN 2.0B Linux API
+
+--2.3.7
+1. Fixed EMUCEnableSendQueue() CPU loading issue
+
+--2.3.6
+1.Fixed RS232_OpenComport() failed issue on QNX platform
+
+--2.3.5
+1. Fixed EMUCSend() failed issue after "active CANbus repeatedly"
+
+--v2.3.4
+1. modified EMUCCloseDevice() to automatic execute EMUCInitCAN() for inactive device
+
+--v2.3.3
+1. Fine tune EMUCSend() with different baudrate
+
+--v2.3.2 (customization)
+1. Add 400K baud rate
+
+--v2.3.1
+1. Change tty port support list. Change ttyS0~S15 to ttyCAN0~CAN15
+
+
+--v2.3.0
+1.Add EMUCOpenSocketCAN function for SocketCAN emucd utility to open serial port.
+  
+
+--v2.2.0
+1. Remove EMUCReceiveBlock function.
+2. Add 1 function
+  int EMUCSetRecvBlock    (int com_port, bool is_enable);
+
+--v2.1.0
+1. Add 3 functions
+  int EMUCReceiveBlock (int com_port, CAN_FRAME_INFO *can_frame_info, unsigned int sleep_ms);
+  int EMUCEnableSendQueue (int com_port, bool is_enable, unsigned int queue_size); //need pthread
+  int EMUCGetBusError (int com_port); //need firmware v2.1.0
+
+2. EMUCSend delay 100 us
+
+--v2.0.0
+First release

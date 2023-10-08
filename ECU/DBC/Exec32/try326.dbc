@@ -1,0 +1,62 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: New_Node_1
+VAL_TABLE_ New_Value_Table_2 83 "Description for the value '0x53'" 82 "Description for the value '0x52'" 81 "Description for the value '0x51'" 80 "Description for the value '0x50'" 79 "Description for the value '0x4F'" 78 "Description for the value '0x4E'" 77 "Description for the value '0x4D'" 76 "Description for the value '0x4C'" 75 "Description for the value '0x4B'" 74 "Description for the value '0x4A'" 73 "Description for the value '0x49'" 72 "Description for the value '0x48'" 71 "Description for the value '0x47'" 70 "Description for the value '0x46'" 69 "Description for the value '0x45'" 68 "Description for the value '0x44'" 67 "Description for the value '0x43'" 66 "Description for the value '0x42'" 65 "Description for the value '0x41'" 64 "Description for the value '0x40'" 63 "Description for the value '0x3F'" 62 "Description for the value '0x3E'" 61 "Description for the value '0x3D'" 60 "Description for the value '0x3C'" 59 "Description for the value '0x3B'" 58 "Description for the value '0x3A'" 57 "Description for the value '0x39'" 56 "Description for the value '0x38'" 55 "Description for the value '0x37'" 54 "Description for the value '0x36'" 53 "Description for the value '0x35'" 52 "Description for the value '0x34'" 51 "Description for the value '0x33'" 50 "Description for the value '0x32'" 49 "Description for the value '0x31'" 48 "Description for the value '0x30'" 47 "Description for the value '0x2F'" 46 "Description for the value '0x2E'" 45 "Description for the value '0x2D'" 44 "Description for the value '0x2C'" 43 "Description for the value '0x2B'" 42 "Description for the value '0x2A'" 41 "Description for the value '0x29'" 40 "Description for the value '0x28'" 39 "Description for the value '0x27'" 38 "Description for the value '0x26'" 37 "Description for the value '0x25'" 36 "Description for the value '0x24'" 35 "Description for the value '0x23'" 34 "Description for the value '0x22'" 33 "Description for the value '0x21'" 32 "Description for the value '0x20'" 31 "Description for the value '0x1F'" 30 "Description for the value '0x1E'" 29 "Description for the value '0x1D'" 28 "Description for the value '0x1C'" 27 "Description for the value '0x1B'" 26 "Description for the value '0x1A'" 25 "Description for the value '0x19'" 24 "Description for the value '0x18'" 23 "Description for the value '0x17'" 22 "Description for the value '0x16'" 21 "Description for the value '0x15'" 20 "Description for the value '0x14'" 19 "Description for the value '0x13'" 18 "Description for the value '0x12'" 17 "Description for the value '0x11'" 16 "Description for the value '0x10'" 15 "Description for the value '0xF'" 14 "Description for the value '0xE'" 13 "Description for the value '0xD'" 12 "Description for the value '0xC'" 11 "Description for the value '0xB'" 10 "Description for the value '0xA'" 9 "Description for the value '0x9'" 8 "Description for the value '0x8'" 7 "Description for the value '0x7'" 6 "Description for the value '0x6'" 5 "Description for the value '0x5'" 4 "Description for the value '0x4'" 3 "Description for the value '0x3'" 2 "Description for the value '0x2'" 1 "Description for the value '0x1'" 0 "Description for the value '0x0'" ;
+
+
+BO_ 161 New_Message_1: 1 Vector__XXX
+ SG_ New_Signal_3 : 0|17@1- (1,0) [-65536|65535] "" Vector__XXX
+
+
+
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType";
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 0;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 0;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","not_used","not_used","not_used","not_used","Cyclic","not_used","IfActive","NoMsgSendType";
+BA_DEF_ BU_  "NmStationAddress" HEX 0 0;
+BA_DEF_  "DBName" STRING ;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_DEF_  "GenSigSendType" "Cyclic";
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenMsgSendType" "NoMsgSendType";
+BA_DEF_DEF_  "NmStationAddress" 0;
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_  "BusType" "CAN";
+BA_ "DBName" "CANTemplate";
+BA_ "NmStationAddress" BU_ New_Node_1 161;
+VAL_ 161 New_Signal_3 83 "Description for the value '0x53'" 82 "Description for the value '0x52'" 81 "Description for the value '0x51'" 80 "Description for the value '0x50'" 79 "Description for the value '0x4F'" 78 "Description for the value '0x4E'" 77 "Description for the value '0x4D'" 76 "Description for the value '0x4C'" 75 "Description for the value '0x4B'" 74 "Description for the value '0x4A'" 73 "Description for the value '0x49'" 72 "Description for the value '0x48'" 71 "Description for the value '0x47'" 70 "Description for the value '0x46'" 69 "Description for the value '0x45'" 68 "Description for the value '0x44'" 67 "Description for the value '0x43'" 66 "Description for the value '0x42'" 65 "Description for the value '0x41'" 64 "Description for the value '0x40'" 63 "Description for the value '0x3F'" 62 "Description for the value '0x3E'" 61 "Description for the value '0x3D'" 60 "Description for the value '0x3C'" 59 "Description for the value '0x3B'" 58 "Description for the value '0x3A'" 57 "Description for the value '0x39'" 56 "Description for the value '0x38'" 55 "Description for the value '0x37'" 54 "Description for the value '0x36'" 53 "Description for the value '0x35'" 52 "Description for the value '0x34'" 51 "Description for the value '0x33'" 50 "Description for the value '0x32'" 49 "Description for the value '0x31'" 48 "Description for the value '0x30'" 47 "Description for the value '0x2F'" 46 "Description for the value '0x2E'" 45 "Description for the value '0x2D'" 44 "Description for the value '0x2C'" 43 "Description for the value '0x2B'" 42 "Description for the value '0x2A'" 41 "Description for the value '0x29'" 40 "Description for the value '0x28'" 39 "Description for the value '0x27'" 38 "Description for the value '0x26'" 37 "Description for the value '0x25'" 36 "Description for the value '0x24'" 35 "Description for the value '0x23'" 34 "Description for the value '0x22'" 33 "Description for the value '0x21'" 32 "Description for the value '0x20'" 31 "Description for the value '0x1F'" 30 "Description for the value '0x1E'" 29 "Description for the value '0x1D'" 28 "Description for the value '0x1C'" 27 "Description for the value '0x1B'" 26 "Description for the value '0x1A'" 25 "Description for the value '0x19'" 24 "Description for the value '0x18'" 23 "Description for the value '0x17'" 22 "Description for the value '0x16'" 21 "Description for the value '0x15'" 20 "Description for the value '0x14'" 19 "Description for the value '0x13'" 18 "Description for the value '0x12'" 17 "Description for the value '0x11'" 16 "Description for the value '0x10'" 15 "Description for the value '0xF'" 14 "Description for the value '0xE'" 13 "Description for the value '0xD'" 12 "Description for the value '0xC'" 11 "Description for the value '0xB'" 10 "Description for the value '0xA'" 9 "Description for the value '0x9'" 8 "Description for the value '0x8'" 7 "Description for the value '0x7'" 6 "Description for the value '0x6'" 5 "Description for the value '0x5'" 4 "Description for the value '0x4'" 3 "Description for the value '0x3'" 2 "Description for the value '0x2'" 1 "Description for the value '0x1'" 0 "Description for the value '0x0'" ;
+

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd /usr/bin/ini_generator_inno
+./ini_generator_exe

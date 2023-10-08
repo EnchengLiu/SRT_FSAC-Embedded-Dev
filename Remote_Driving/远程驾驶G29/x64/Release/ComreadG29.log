@@ -1,0 +1,4 @@
+﻿  ComreadG29.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+d:\Users\LAB\Desktop\ComreadG29\ComreadG29\ComreadG29.cpp(75,57): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+LogitechSteeringWheelLib.lib(LogitechSteeringWheelLib.obj) : fatal error LNK1112: 模块计算机类型“x86”与目标计算机类型“x64”冲突

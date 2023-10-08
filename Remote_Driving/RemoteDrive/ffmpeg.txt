@@ -1,0 +1,55 @@
+FFmpeg: Fast Forward Mpeg
+(1)ffmpeg -h(show help)
+(2)ffplay name.mp4
+(3)ffplay name.mp3
+(4)ffprobe name.mp4
+cls
+
+转换格式
+ ffmpeg -i input.mov output.mp4
+
+改变编码（压缩）
+ffmpeg -codecs（编解码器）
+1.MP4封装 ： H264视频编码 +AAC音频编码
+2.WebM封装 ： VP8视频编码 +Vorbis音频编码
+3.OGG封装 ： Theora视频编码 +Vorbis音频编码(完全开源)
+
+(1)ffmpeg -i yourname.flac -acodec libmp3lame -ar 44100 -ab 320K -ac 2 out.mp3
+libmp3lame， mp3的编码器
+ -ar 44100，设置音频采样率
+-ab 320K , 指定音频比特率（默认128K）
+-ac 2，（声道数，默认原声道）
+
+(2)ffmpeg -i in.webm -s 1920x1080 -pix_fmt yuv420p -vcodec libx264 -preset medium -profile:v high -level:v 4.1 -crf 23 -acodec aac -ar -b:a 128k out.mp4
+ffmpeg -i video.mp4 -s 1920x1080 -pix_fmt yuv420p -vcodec libx264 -preset slow -profile:v high -level:v 4.1 -crf 23 -acodec aac -ar 44100 -ab 128k out.mp4
+-s缩放视频尺寸
+1920x1080宽和高
+-pix_fmt：pixel formata设置视频颜色空间(YUV,NV,RGB,用ffmpeg -pix_fmts查询)
+-vcodec：设置视频流编码器
+-preset ：编码器预设（精度越高，编码越慢，CPU占用越多，默认medium）
+（ultrafast superfast veryfast faster faste mediium slow slower veryslow plcebo，压制视频一般用veryslow，用时间换取存储空间）
+-profile:v  ：指定编码器配置（与压缩比有关，实时通信领域一般采用baseline，流媒体采用main，超清视频使用high）
+-level:v ：（从1到5.2，1080P一般用4.1）
+-crf ：设置码率控制模式，constant rate factor,(从0到51，默认23，数值越小，质量越高，0无损画质，一般8到28)
+-r 30 设置30帧的帧率
+-acodec设置音频编码器，选用acc编码器
+-b:a和-ab一样
+
+改变码率控制模式
+-qp  -crf  -b
+-qp(constant quantizer)恒定量化器模式（0到51模式）量化参数（Quantization Parameter,QP）控制着压缩大小，QP越大压缩率越高同时质量越低
+-crf(constant rate factor)（一般用于压制视频）
+-b(bitrate)固定目标码率模式
+(3)
+
+
+Nginx
+Nginx 是高性能的 HTTP 和反向代理的web服务器，处理高并发能力是十分强大的，能经受高负 载的考验,有报告表明能支持高达 50,000 个并发连接数。
+
+其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。
+nginx文件安装完成之后的文件位置：
+
+/usr/sbin/nginx：主程序
+/etc/nginx：存放配置文件
+/usr/share/nginx：存放静态文件
+/var/log/nginx：存放日志

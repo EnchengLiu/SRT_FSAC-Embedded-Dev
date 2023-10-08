@@ -1,0 +1,34 @@
+EMUC-B202 CAN 2.0B Windows API
+
+--2.2.6
+1. Fixed EMUCEnableSendQueue() CPU loading issue
+
+-- 2.2.5
+1. Modify rs232.c SetCommTimeouts Function for fixed execute program loading issue.
+2. Add new function EMUCOpenDeviceSCT() for reduce execute program loading in Windows.
+
+--2.2.4
+1. Fixed EMUCSend() failed issue after "active CANbus repeatedly"
+
+--v2.2.3
+1. modified EMUCCloseDevice() to automatic execute EMUCInitCAN() for inactive device
+
+--v2.2.2
+1. Fine tune EMUCSend() with different baudrate
+
+--v2.2.1 (customization)
+1. Add 400K baud rate
+
+--v2.2.0 
+
+1. Remove EMUCReceiveBlock() function
+2. Change EMUCSend() sleep delay to loop delay (for_cnt = 50000, around 100us)
+
+--v2.1.0
+1. EMUCSend() with 100us delay
+2. Add EMUCReceiveBlock() function
+3. Add EMUCEnableSendQueue() function (need pthread)
+4. Add EMUCGetBusError() function (need firmware v2.10)
+
+--v2.0.0
+First release
